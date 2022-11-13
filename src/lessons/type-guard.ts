@@ -1,10 +1,17 @@
 // Top Types
-interface HasEmail {
+export interface HasEmail {
     name:string
     email : string
 }
+export interface HasPhone {
+    name:string
+    phone : number
+}
 export function isHasEmail(x:any):x is HasEmail{
     return typeof x.name === 'string' && typeof x.email ==='string'
+}
+export function isHasPhone(x:any):x is HasPhone{
+    return typeof x.name === 'string' && typeof x.phone ==='string'
 }
 
 export function isDefined<T> (arg :T |undefined):arg is T{
