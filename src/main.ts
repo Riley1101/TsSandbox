@@ -1,2 +1,2 @@
 import * as ex from  './exercises'
-ex
+import * as ls from './lessons'

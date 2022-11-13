@@ -18,7 +18,7 @@ const obj: FilterProps<typeof value> = {
   value: value,
 };
 
-function resolveOrTimeOut<T>(promise: Promise<T>, timeout: number) {
+export function resolveOrTimeOut<T>(promise: Promise<T>, timeout: number) {
   return new Promise<T>((resolve, reject) => {
     const task = setTimeout(() => reject("time up"), timeout);
     promise.then((val) => {
@@ -44,7 +44,7 @@ function arrToDict2<T extends {id:string}>(arr : T[]){
   return res
 }
 
-function startTuple<T>(a:T){
+export function startTuple<T>(a:T){
   return function endTuple<U>(b:U){
     return [a,b] as [T,U]
   }
@@ -52,12 +52,12 @@ function startTuple<T>(a:T){
 
 // using generics
 
-interface Shape {
+export interface Shape {
   draw() : void
   isDrawn : boolean
 }
 
-interface Circle extends Shape{
+export interface Circle extends Shape{
   radius:number
 }
 
@@ -72,3 +72,5 @@ function drawShape2<T extends Shape>(shapes:T[] ){
     item.draw()
   })
 }
+
+export {drawShape,drawShape2,arrToDict,arrToDict2}
